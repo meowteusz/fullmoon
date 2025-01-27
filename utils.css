@@ -1,0 +1,51 @@
+.mt-1 {
+    margin-top: 0.25rem;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.mt-4 {
+    margin-top: 2rem;
+}
+
+.container {
+    display: flex;
+}
+
+.container.vertical {
+    flex-direction: column;
+}
+
+.container.justify-center {
+    justify-content: center;
+}
+
+.container.align-center {
+    align-items: center;
+}
+
+.container.rtl {
+    justify-content: flex-end;
+}
+
+.grow {
+    flex-grow: 1;
+}
+
+.squish {
+    transform: scale(1, 2.5);
+}
+
+.col-gap-1 {
+    column-gap: 1rem;
+}
+
+.row-gap-1 {
+    row-gap: 1rem;
+}
