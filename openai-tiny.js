@@ -1,6 +1,6 @@
 export class OpenAIStream {
     constructor() {
-        this.api_key = "CHANGE_ME";
+        this.api_key = "";
         this.base_url = "https://api.openai.com/v1/chat/completions";
     }
 
