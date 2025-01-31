@@ -21,10 +21,13 @@ let messages = [];
 key_input.addEventListener("input", check_key);
 chat_input.addEventListener("keydown", (e) => send_message(e));
 
+// Expose functions to the window object
+// lest ye suffer reference errors
+window.messages = messages;
+
 // Utility Functions
 function check_key() {
     let api_key = key_input.value;
-    console.log(api_key);
 
     if (api_key == "test") {
         console.log("dev mode on");
@@ -56,10 +59,6 @@ function check_key() {
     key_input.style.setProperty("border-bottom-color", "#408558");
     gippity.api_key = api_key;
 }
-
-// Expose functions to the window object
-// lest ye suffer reference errors
-window.messages = messages;
 
 async function respond() {
     // Don't do anything unless the key is valid
@@ -126,7 +125,12 @@ function send_message(event) {
         let content = chat_input.value;
         chat_input.value = "";
 
+        messages.push({ "role": "user", "content": content });
         add_user_message(content);
-        messages.push({ "type": "user", "content": content });
     }
+}
+
+// Main
+if(key_input.value) {
+    check_key();
 }
