@@ -23,8 +23,42 @@
     <title>fuLLMoon</title>
   </head>
   <body>
-    <main>
-      <h1>Hello, World!</h1>
-    </main>
+    <div id="app" class="container vertical">
+      <header class="container justify-center col-gap-1">
+        <!-- <h1 class="squish">fuLLMoon</h1> -->
+        <div class="grow">
+          <input
+            id="apikey_input"
+            class="apikey"
+            type="text"
+            placeholder="Paste your OpenAI API key here..."
+            size="164"
+          />
+        </div>
+      </header>
+      <div id="chat" class="container vertical align-center"></div>
+      <div id="chatbox" class="container align-center">
+        <textarea id="chat_input" class="chat grow"></textarea>
+      </div>
+    </div>
+
+    <div id="templates">
+      <template id="user_message_template">
+        <div class="message">
+          <textarea class="sent" rows="5" cols="60"></textarea>
+        </div>
+      </template>
+
+      <template id="system_message_template">
+        <div class="message completion">
+          <textarea
+            class="received stream_here"
+            rows="5"
+            cols="60"
+            readonly
+          ></textarea>
+        </div>
+      </template>
+    </div>
   </body>
 </html>
