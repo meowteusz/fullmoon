@@ -8,10 +8,7 @@ const chat_window = document.getElementById("chat");
 // Grab references to the templates. Storing these as functions means we're not
 // writing huge structs to memory. Instead, they get fetched when needed and
 // promptly go out of scope when their initiator function returns.
-const user_message =
-    () => (document.getElementById("user_message_template").content);
-const system_message =
-    () => (document.getElementById("system_message_template").content);
+const message = () => (document.getElementById("message_template").content);
 
 // Instantiate main objects
 const gippity = new OpenAIStream();
@@ -107,11 +104,13 @@ async function respond() {
 }
 
 function add_user_message(content) {
-    const query = user_message().cloneNode(true);
+    const query = message().cloneNode(true);
     query.querySelector("textarea").value = content;
     chat_window.appendChild(query);
 
-    const response = system_message().cloneNode(true);
+    const response = message().cloneNode(true);
+    response.querySelector(".message").classList.add("completion");
+    response.querySelector("textarea").classList.add("stream_here");
     response.querySelector("textarea").value = "Thinking...";
     chat_window.appendChild(response);
 
@@ -131,6 +130,6 @@ function send_message(event) {
 }
 
 // Main
-if(key_input.value) {
+if (key_input.value) {
     check_key();
 }

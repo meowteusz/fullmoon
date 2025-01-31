@@ -26,10 +26,18 @@ input.chat {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInTranslate 0.25s ease-in-out forwards;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-    margin-bottom: 0.5rem;
+}
+
+.message textarea {
+    box-shadow: 3px 3px 0 #000000;
+    transition: all 0.3s ease;
+    transform: translate(-3px, -3px);
+}
+
+.message.completion textarea {
+    box-shadow: -3px 3px 0 #000000;
+    transition: all 0.3s ease;
+    font-family: monospace;
 }
 
 @keyframes fadeInTranslate {
@@ -56,14 +64,6 @@ textarea:focus {
     outline: none;
 }
 
-textarea.sent {
-    box-shadow: 3px 3px 0 #000000;
-    transition: all 0.3s ease;
-    transform: translate(-3px, -3px);
-}
-
-textarea.received {
-    box-shadow: -3px 3px 0 #000000;
-    transition: all 0.3s ease;
-    font-family: monospace;
+#chat{
+    row-gap: 1rem;
 }
