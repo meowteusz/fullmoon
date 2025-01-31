@@ -64,6 +64,14 @@ async function respond() {
         return false;
     }
 
+    const response = message().cloneNode(true);
+
+    response.querySelector(".message").classList.add("completion");
+    response.querySelector("textarea").classList.add("stream_here");
+    response.querySelector("textarea").value = "Thinking...";
+    
+    chat_window.appendChild(response);
+
     // Should only ever be the one element with this class active
     let stream_here = document.querySelector(".stream_here");
 
@@ -107,12 +115,6 @@ function add_user_message(content) {
     const query = message().cloneNode(true);
     query.querySelector("textarea").value = content;
     chat_window.appendChild(query);
-
-    const response = message().cloneNode(true);
-    response.querySelector(".message").classList.add("completion");
-    response.querySelector("textarea").classList.add("stream_here");
-    response.querySelector("textarea").value = "Thinking...";
-    chat_window.appendChild(response);
 
     respond();
 }
