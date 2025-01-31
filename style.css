@@ -1,0 +1,69 @@
+input.apikey {
+    border: none;
+    border-bottom: 2px solid;
+    border-bottom-color: #dadada;
+    font-family: monospace;
+    outline: none;
+    padding: 5px 0;
+    transition: border-color 0.3s ease;
+}
+
+input.apikey:focus {
+    border-bottom-color: #000000;
+}
+
+input.chat {
+    border: none;
+    border-bottom: 2px solid;
+    border-bottom-color: #dadada;
+    font-family: monospace;
+    outline: none;
+    padding: 5px 0;
+    transition: border-color 0.3s ease;
+}
+
+.message {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInTranslate 0.25s ease-in-out forwards;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+@keyframes fadeInTranslate {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+textarea {
+    min-height: 4rem;
+    padding: 1rem;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 0.1rem;
+    color: black;
+    border: 2px solid black;
+    font-size: 16px;
+    font-family: inherit;
+    resize: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+textarea.sent {
+    box-shadow: 3px 3px 0 #000000;
+    transition: all 0.3s ease;
+    transform: translate(-3px, -3px);
+}
+
+textarea.received {
+    box-shadow: -3px 3px 0 #000000;
+    transition: all 0.3s ease;
+    font-family: monospace;
+}
